@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #b1b3b6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    background-color: #007a33;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005622;
+}
+
+#flags-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.flag {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(to bottom, #000 33.33%, #fff 33.33%, #fff 66.66%, #007a33 66.66%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 20% 50%);
+    animation: wave 2s linear infinite;
+}
+
+.flag:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 20px solid red;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+.flag:after {
+    content: '★';
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    font-size: 8px;
+    color: white;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    animation: explode 2s linear infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
